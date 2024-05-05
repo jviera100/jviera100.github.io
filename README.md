@@ -57,7 +57,7 @@ Este repositorio contiene los archivos y directorios siguientes:
 
 ## Descripción de Directorios Principales
 
-- **assets/**: Contiene recursos como archivos de sonido, hojas de estilo CSS, scripts JS, imágenes y documentos.
+- **assets/**: Contiene recursos como hojas de estilo CSS, scripts JS, imágenes y documentos.
 
 ## Otros Archivos y Directorios
 
