@@ -32,9 +32,13 @@
     
 
 <br>
-🚀[portafolio](https://jviera100.github.io/)
-🚀[descripcion](https://onedrive.live.com/edit?id=8AE2373A040B0C95!7203&resid=8AE2373A040B0C95!7203&ithint=file%2cdocx&authkey=!ABR_9Mff3W5tSfQ&wdo=2&cid=8ae2373a040b0c95)
-🚀[perfil_github](https://github.com/jviera100)
+...
+
+- portafolio/
+  - ├── 🚀[portafolio](https://jviera100.github.io/) 
+  - ├── 🚀[descripcion](https://onedrive.live.com/edit?id=8AE2373A040B0C95!7203&resid=8AE2373A040B0C95!7203&ithint=file%2cdocx&authkey=!ABR_9Mff3W5tSfQ&wdo=2&cid=8ae2373a040b0c95)
+  - └── 🚀[perfil_github](https://github.com/jviera100)
+
 <br>
 <hr>
 www.desafiolatam.com
