@@ -32,7 +32,7 @@
     
 
 <br>
-🚀[portafolio](https://m8d33pruebaskate.onrender.com)
+🚀[portafolio](https://jviera100.github.io/)
 <br>
 # estructura de carpetas => modelo vista controlador (MVC)
 //importaciones = 
