@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -833,11 +834,11 @@
     <div class="animated-bg"></div>
     <div class="cyber-grid"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation -->    
     <nav class="nav">
         <ul class="nav-list">
             <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="https://github.com/jviera100/documentacion" class="nav-link" target="_blank" rel="noopener noreferrer">Projects</a></li>
+            <li><a href="https://github.com/jviera100/documentacion" class="nav-link" target="_blank">Projects</a></li>
         </ul>        
     </nav>
 
@@ -1038,17 +1039,19 @@
             });
         });
         
-        // Smooth scrolling
+        // Smooth scrolling for internal links
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
                 const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                if (targetId.startsWith('#')) {
+                    e.preventDefault(); // Prevent default only for internal links
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
