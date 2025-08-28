@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" /> <!-- CHAT --> 
     <style>
         :root {
             --hacker-red: #ff073a;
@@ -814,6 +815,24 @@
                 }
             });
         });
+    </script>
+    <!-- CHAT --> 
+    <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+        webhookUrl: 'http://localhost:5678/webhook/eab105ed-4969-4b72-ab8a-bc8806a9b3e5/chat',
+        defaultLanguage: 'es',
+        i18n: {
+            es: {
+                title: 'Hunter',
+                subtitle: 'Hola, soy el asistente de Jonathan. ¿En qué puedo ayudarte?☺️',
+                footer: '🛡️¡Si lo puedes imaginar, lo puedes programar!💻',
+                getStarted: 'Nueva Conversación',
+                inputPlaceholder: 'Escribe tu pregunta...'
+            }
+        }
+    });
     </script>
 </body>
 </html>
