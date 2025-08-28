@@ -822,12 +822,15 @@
 
     createChat({
         webhookUrl: 'http://localhost:5678/webhook/eab105ed-4969-4b72-ab8a-bc8806a9b3e5/chat',
+        initialMessages: [
+        'Hola, soy el asistente de Jonathan. ¿En qué puedo ayudarte?☺️'
+        ],
         defaultLanguage: 'es',
         i18n: {
             es: {
                 title: 'Hunter',
-                subtitle: 'Hola, soy el asistente de Jonathan. ¿En qué puedo ayudarte?☺️',
-                footer: '🛡️¡Si lo puedes imaginar, lo puedes programar!💻',
+                subtitle: '🛡️¡Si lo puedes imaginar, lo puedes programar!💻',
+                footer: '',
                 getStarted: 'Nueva Conversación',
                 inputPlaceholder: 'Escribe tu pregunta...'
             }
