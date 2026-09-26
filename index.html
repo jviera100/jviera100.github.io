@@ -1,14 +1,17 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JViera [Compromised_System] // Root Access</title>
+    <title>Jonathan Viera [Cybersecurity Student]</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" /> <!-- CHAT --> 
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">
+
     <style>
         :root {
             --hacker-red: #ff073a;
@@ -18,7 +21,6 @@
             --background-dark: #0d0d0d;
             --background-med: #1a1a1a;
             --text-light: #e0e0e0;
-            --text-dark: #111;
             --border-color: rgba(255, 7, 58, 0.3);
         }
 
@@ -26,7 +28,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewport="0 0 100 100" style="fill:black;font-size:14px;"><text y="50%">█</text></svg>') 4 8, auto;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><text y="50%" style="fill:black;font-size:14px;">█</text></svg>') 4 8, auto;
         }
 
         html {
@@ -42,13 +44,9 @@
             text-shadow: 0 0 2px rgba(0, 255, 65, 0.2);
         }
 
-        /* ----- Background Effects ----- */
         .scanlines {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 9999;
             background: repeating-linear-gradient(
@@ -60,7 +58,7 @@
             );
             animation: scanline-flicker 10s linear infinite;
         }
-        
+
         @keyframes scanline-flicker {
             0% { transform: translateY(0); }
             100% { transform: translateY(20px); }
@@ -68,18 +66,15 @@
 
         .noise-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
             opacity: 0.03;
             z-index: -1;
             pointer-events: none;
         }
 
+        /* HEADER */
 
-        /* ----- Header ----- */
         .header {
             min-height: 100vh;
             display: flex;
@@ -92,11 +87,10 @@
         .header-content {
             text-align: center;
             z-index: 10;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
         }
 
-        /* ----- The NEW Re-Compiled Avatar ----- */
         .cyber-avatar {
             width: 200px;
             height: 200px;
@@ -108,10 +102,15 @@
             justify-content: center;
             position: relative;
             border: 2px solid var(--border-color);
-            animation: flicker 4s linear infinite, border-pulse 4s ease-in-out infinite;
+            animation: flicker 4s linear infinite,
+                       border-pulse 4s ease-in-out infinite;
         }
 
-        .hacker-figure { position: relative; width: 120px; height: 140px; }
+        .hacker-figure {
+            position: relative;
+            width: 120px;
+            height: 140px;
+        }
 
         .hoodie {
             position: absolute;
@@ -123,7 +122,6 @@
             background: var(--background-med);
             border-radius: 50px 50px 20px 20px;
             border: 1px solid var(--border-color);
-            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5);
         }
 
         .hoodie::before {
@@ -136,7 +134,7 @@
             height: 60px;
             background: var(--background-dark);
             border-radius: 35px 35px 15px 15px;
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            border: 1px solid rgba(0,255,65,0.3);
         }
 
         .face-shadow {
@@ -146,7 +144,11 @@
             transform: translateX(-50%);
             width: 50px;
             height: 40px;
-            background: radial-gradient(circle, var(--terminal-green-glow) 0%, transparent 70%);
+            background: radial-gradient(
+                circle,
+                var(--terminal-green-glow) 0%,
+                transparent 70%
+            );
             border-radius: 50%;
         }
 
@@ -165,12 +167,6 @@
             background: var(--hacker-red);
             border-radius: 50%;
             box-shadow: 0 0 10px var(--hacker-red);
-            animation: eyeGlow 2.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes eyeGlow {
-            0% { box-shadow: 0 0 8px var(--hacker-red); transform: scale(1); }
-            100% { box-shadow: 0 0 20px var(--hacker-red), 0 0 25px var(--hacker-red); transform: scale(1.1); }
         }
 
         .terminal-line {
@@ -182,26 +178,28 @@
             height: 2px;
             background: var(--terminal-green);
             box-shadow: 0 0 5px var(--terminal-green);
-            animation: terminal-flicker 0.5s linear infinite;
-        }
-
-        @keyframes terminal-flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
         }
 
         @keyframes flicker {
-            0%, 100% { opacity: 1; } 50.2% { opacity: 0.8; } 50.5% { opacity: 1; }
-            50.8% { opacity: 0.7; } 51% { opacity: 1; } 75.3% { opacity: 0.9; }
+            0%,100% { opacity: 1; }
+            50.2% { opacity: .8; }
+            50.5% { opacity: 1; }
         }
 
         @keyframes border-pulse {
-            0% { box-shadow: 0 0 10px var(--hacker-red-glow); }
-            50% { box-shadow: 0 0 40px var(--hacker-red-glow), inset 0 0 20px var(--hacker-red-glow); }
-            100% { box-shadow: 0 0 10px var(--hacker-red-glow); }
+            0% {
+                box-shadow: 0 0 10px var(--hacker-red-glow);
+            }
+            50% {
+                box-shadow:
+                    0 0 40px var(--hacker-red-glow),
+                    inset 0 0 20px var(--hacker-red-glow);
+            }
+            100% {
+                box-shadow: 0 0 10px var(--hacker-red-glow);
+            }
         }
 
-        /* ----- Glitch Text: Mr. Robot Style ----- */
         .glitch-text {
             font-size: 4rem;
             font-weight: 700;
@@ -210,17 +208,13 @@
             margin-bottom: 20px;
             color: var(--text-light);
             position: relative;
-            animation: glitch-main 5s infinite;
         }
-        
+
         .glitch-text::before,
         .glitch-text::after {
             content: "Jonathan Viera";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: var(--background-dark);
             overflow: hidden;
         }
@@ -228,21 +222,30 @@
         .glitch-text::before {
             left: 2px;
             text-shadow: -2px 0 var(--hacker-red);
-            clip: rect(44px, 450px, 56px, 0);
+            clip: rect(44px,450px,56px,0);
             animation: glitch-anim1 5s infinite linear alternate-reverse;
         }
 
         .glitch-text::after {
             left: -2px;
-            text-shadow: -2px 0 var(--terminal-green), 2px 2px var(--hacker-red);
-            clip: rect(85px, 450px, 90px, 0);
+            text-shadow:
+                -2px 0 var(--terminal-green),
+                2px 2px var(--hacker-red);
+            clip: rect(85px,450px,90px,0);
             animation: glitch-anim2 5s infinite linear alternate-reverse;
         }
 
-        @keyframes glitch-main { 2%, 64% { transform: translate(2px, 0) skew(0deg); } 4%, 60% { transform: translate(-2px, 0) skew(0deg); } 62% { transform: translate(0, 0) skew(5deg); } }
-        @keyframes glitch-anim1 { 2%, 64% { transform: translate(2px, -2px); } 4%, 60% { transform: translate(-2px, 2px); } 62% { transform: translate(13px, -1px) skew(-13deg); } }
-        @keyframes glitch-anim2 { 2%, 64% { transform: translate(-2px, 0); } 4%, 60% { transform: translate(2px, 0); } 62% { transform: translate(-22px, 5px) skew(21deg); } }
+        @keyframes glitch-anim1 {
+            2%,64% { transform: translate(2px,-2px); }
+            4%,60% { transform: translate(-2px,2px); }
+            62% { transform: translate(13px,-1px) skew(-13deg); }
+        }
 
+        @keyframes glitch-anim2 {
+            2%,64% { transform: translate(-2px,0); }
+            4%,60% { transform: translate(2px,0); }
+            62% { transform: translate(-22px,5px) skew(21deg); }
+        }
 
         .typing-animation {
             font-size: 1.5rem;
@@ -255,12 +258,14 @@
             display: inline-block;
             width: 10px;
             height: 1.5rem;
-            background-color: var(--terminal-green);
-            animation: blink 0.8s infinite;
-            box-shadow: 0 0 5px var(--terminal-green);
+            background: var(--terminal-green);
+            animation: blink .8s infinite;
         }
 
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes blink {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
         .status-badge {
             background: transparent;
@@ -292,8 +297,7 @@
             justify-content: center;
             color: var(--text-light);
             font-size: 1.5rem;
-            transition: all 0.2s ease-in-out;
-            text-shadow: none;
+            transition: .2s;
         }
 
         .social-link:hover {
@@ -301,47 +305,58 @@
             color: var(--background-dark);
             box-shadow: 0 0 20px var(--hacker-red);
             transform: translateY(-5px) scale(1.1);
-            border-color: var(--hacker-red);
         }
 
-        /* ----- Navigation ----- */
+        /* NAV */
+
         .nav {
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(13, 13, 13, 0.8);
+            background: rgba(13,13,13,.8);
             backdrop-filter: blur(5px);
             border: 1px solid var(--border-color);
             padding: 5px;
         }
 
-        .nav-list { display: flex; list-style: none; }
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
 
         .nav-link {
             color: var(--text-light);
             text-decoration: none;
             padding: 10px 20px;
-            transition: all 0.2s ease;
+            transition: .2s;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             background: var(--hacker-red);
             color: var(--background-dark);
-            text-shadow: none;
         }
 
-        /* ----- General Section Styling ----- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 100px 0; position: relative; }
+        /* GENERAL */
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 20px;
             color: var(--hacker-red);
             text-transform: uppercase;
@@ -352,49 +367,40 @@
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
-            color: rgba(224, 224, 224, 0.7);
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: rgba(224,224,224,.7);
+            margin: 0 auto 60px;
+            max-width: 700px;
         }
 
-        /* ----- Cards ----- */
-        .glass-grid, .projects-grid {
+        .glass-grid,
+        .projects-grid {
             display: grid;
             gap: 30px;
             margin-top: 60px;
         }
-        .glass-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-        .projects-grid { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
 
-        .glass-card, .project-card {
+        .glass-grid {
+            grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+        }
+
+        .projects-grid {
+            grid-template-columns: repeat(auto-fit,minmax(380px,1fr));
+        }
+
+        .glass-card,
+        .project-card {
             background: var(--background-med);
             border: 1px solid var(--border-color);
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: .3s;
             position: relative;
         }
 
-        .glass-card::before, .project-card::before {
-            content: '>';
-            font-family: 'Roboto Mono', monospace;
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            color: var(--hacker-red);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .glass-card:hover, .project-card:hover {
+        .glass-card:hover,
+        .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 0 30px var(--hacker-red-glow);
             border-color: var(--hacker-red);
-        }
-
-        .glass-card:hover::before, .project-card:hover::before {
-            opacity: 1;
         }
 
         .card-icon {
@@ -403,91 +409,24 @@
             color: var(--hacker-red);
         }
 
-        .card-title, .project-title {
+        .card-title {
             font-size: 1.3rem;
-            font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-light);
         }
 
-        .card-text, .project-description { color: rgba(224, 224, 224, 0.8); }
-
-        /* ----- Skills ----- */
-        .skill-item {
-            background: transparent;
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            padding: 20px 10px;
-            text-align: center;
-            transition: all 0.3s ease;
+        .card-text,
+        .project-description {
+            color: rgba(224,224,224,.8);
         }
 
-        .skill-item:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 255, 65, 0.1);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
-        }
+        /* TERMINAL */
 
-        .skill-icon { font-size: 2rem; margin-bottom: 10px; color: var(--terminal-green); }
-        .skill-name { font-size: 0.9rem; font-weight: 400; color: var(--text-light); }
-
-        /* ----- Projects ----- */
-        .project-card { padding: 0; overflow: hidden; }
-
-        .project-image {
-            height: 200px;
-            background: var(--background-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 3rem;
-            color: var(--hacker-red);
-        }
-
-        .project-content { padding: 25px; }
-
-        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-
-        .tag {
-            background: rgba(255, 7, 58, 0.15);
-            color: var(--hacker-red);
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .project-links { display: flex; gap: 15px; }
-
-        .cyber-btn {
-            padding: 10px 20px;
-            border: 1px solid var(--terminal-green);
-            background: transparent;
-            color: var(--terminal-green);
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .cyber-btn i { font-size: 0.9rem; }
-
-        .cyber-btn:hover {
-            background: var(--terminal-green);
-            color: var(--background-dark);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
-            text-shadow: none;
-        }
-        
-        /* ----- Terminal Section ----- */
         .terminal {
             background: #0a0a0a;
-            border-radius: 0;
             margin: 60px 0;
             border: 1px solid var(--border-color);
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            box-shadow: 0 0 40px rgba(0,0,0,.5);
         }
 
         .terminal-header {
@@ -498,14 +437,19 @@
             gap: 8px;
             border-bottom: 1px solid #333;
         }
-        
+
         .terminal-header::after {
-            content: "user@jviera-portfolio:~";
+            content: "jonathan@portfolio:~";
             color: #888;
             margin-left: 20px;
         }
 
-        .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
         .dot-red { background: var(--hacker-red); }
         .dot-yellow { background: #ffbd2e; }
         .dot-green { background: var(--terminal-green); }
@@ -514,24 +458,124 @@
             padding: 20px;
             font-size: 1rem;
             line-height: 1.8;
-            color: var(--text-light);
         }
 
         .terminal-prompt::before {
-            content: 'root@jviera:~$ ';
+            content: 'jonathan@portfolio:~$ ';
             color: var(--hacker-red);
         }
-        
+
         .terminal-body div {
             color: var(--terminal-green);
         }
-        
+
         .terminal-body div:not(.terminal-prompt) {
             padding-left: 2ch;
         }
 
+        /* EXPERIENCE */
 
-        /* ----- Footer ----- */
+        .experience-list {
+            display: grid;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .experience-item {
+            background: var(--background-med);
+            border-left: 3px solid var(--hacker-red);
+            padding: 25px;
+        }
+
+        .experience-item h3 {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: var(--terminal-green);
+            margin-bottom: 12px;
+        }
+
+        .experience-date {
+            color: #888;
+            font-size: .85rem;
+            margin-bottom: 15px;
+        }
+
+        /* SKILLS */
+
+        .skill-item {
+            background: transparent;
+            border: 1px solid rgba(0,255,65,.2);
+            padding: 20px 10px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: rgba(0,255,65,.1);
+            box-shadow: 0 0 15px rgba(0,255,65,.3);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--terminal-green);
+        }
+
+        .skill-name {
+            font-size: .9rem;
+            color: var(--text-light);
+        }
+
+        /* PROJECTS */
+
+        .project-card {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .tag {
+            background: rgba(255,7,58,.15);
+            color: var(--hacker-red);
+            padding: 5px 10px;
+            font-size: .8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .cyber-btn {
+            padding: 10px 20px;
+            border: 1px solid var(--terminal-green);
+            background: transparent;
+            color: var(--terminal-green);
+            text-decoration: none;
+            font-weight: 700;
+            transition: .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cyber-btn:hover {
+            background: var(--terminal-green);
+            color: var(--background-dark);
+        }
+
+        /* FOOTER */
+
         .footer {
             background: var(--background-med);
             padding: 60px 0 30px;
@@ -539,303 +583,1019 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .footer-content { max-width: 800px; margin: 0 auto; }
-        .footer-title { color: var(--text-light); font-size: 1.8rem; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+        .footer-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .footer-title {
+            color: var(--text-light);
+            font-size: 1.8rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
 
         .contact-item {
             border: 1px solid var(--border-color);
             padding: 20px;
-            transition: all 0.3s ease;
+            transition: .3s;
         }
-        
+
         .contact-item:hover {
             background: var(--hacker-red-glow);
         }
 
-        .contact-icon { font-size: 1.8rem; color: var(--hacker-red); margin-bottom: 10px; }
-
-        /* ----- Responsive ----- */
-        @media (max-width: 768px) {
-            .glitch-text { font-size: 2.5rem; }
-            .cyber-avatar { width: 180px; height: 180px; }
-            .nav { position: relative; top: auto; left: auto; transform: none; margin: 20px; width: calc(100% - 40px); }
-            .nav-list { flex-wrap: wrap; justify-content: center; }
-            .projects-grid, .glass-grid, .contact-grid { grid-template-columns: 1fr; }
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--hacker-red);
+            margin-bottom: 10px;
         }
 
-        /* ----- Scroll Animations ----- */
-        .fade-in, .slide-left, .slide-right {
+        /* ANIMATIONS */
+
+        .fade-in,
+        .slide-left,
+        .slide-right {
             opacity: 0;
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity .6s ease-out,
+                        transform .6s ease-out;
         }
-        .fade-in { transform: translateY(20px); }
-        .slide-left { transform: translateX(-30px); }
-        .slide-right { transform: translateX(30px); }
-        .fade-in.visible, .slide-left.visible, .slide-right.visible {
+
+        .fade-in {
+            transform: translateY(20px);
+        }
+
+        .slide-left {
+            transform: translateX(-30px);
+        }
+
+        .slide-right {
+            transform: translateX(30px);
+        }
+
+        .fade-in.visible,
+        .slide-left.visible,
+        .slide-right.visible {
             opacity: 1;
-            transform: translate(0, 0);
+            transform: translate(0,0);
+        }
+
+        @media (max-width:768px) {
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .cyber-avatar {
+                width: 180px;
+                height: 180px;
+            }
+
+            .nav {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: 20px;
+                width: calc(100% - 40px);
+            }
+
+            .nav-list {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .projects-grid,
+            .glass-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Background Overlays -->
-    <div class="scanlines"></div>
-    <div class="noise-overlay"></div>
 
-    <!-- Navigation -->    
-    <nav class="nav">
-        <ul class="nav-list">
-            <li><a href="#home" class="nav-link active">./home</a></li>
-            <li><a href="https://github.com/jviera100/documentacion" class="nav-link" target="_blank">./projects</a></li>
-        </ul>        
-    </nav>
+<div class="scanlines"></div>
+<div class="noise-overlay"></div>
 
-    <!-- Header -->
-    <section id="home" class="header">
-        <div class="header-content">
-            <div class="cyber-avatar">
-                <div class="hacker-figure">
-                    <div class="hoodie"></div>
-                    <div class="face-shadow"></div>
-                    <div class="eyes">
-                        <div class="eye"></div>
-                        <div class="eye"></div>
-                    </div>
-                    <div class="terminal-line"></div>
+<!-- NAVIGATION -->
+
+<nav class="nav">
+    <ul class="nav-list">
+        <li>
+            <a href="#home" class="nav-link active">./home</a>
+        </li>
+
+        <li>
+            <a href="#about" class="nav-link">./about</a>
+        </li>
+
+        <li>
+            <a href="#experience" class="nav-link">./experience</a>
+        </li>
+
+        <li>
+            <a href="#skills" class="nav-link">./skills</a>
+        </li>
+
+        <li>
+            <a href="#projects" class="nav-link">./projects</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- HEADER -->
+
+<section id="home" class="header">
+
+    <div class="header-content">
+
+        <div class="cyber-avatar">
+
+            <div class="hacker-figure">
+                <div class="hoodie"></div>
+                <div class="face-shadow"></div>
+
+                <div class="eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+
+                <div class="terminal-line"></div>
+            </div>
+
+        </div>
+
+        <h1 class="glitch-text">
+            Jonathan Viera
+        </h1>
+
+        <div class="typing-animation">
+            <span id="typed-text"></span>
+            <span class="cursor"></span>
+        </div>
+
+        <div class="status-badge">
+            <i class="fas fa-graduation-cap"></i>
+            CYBERSECURITY STUDENT
+        </div>
+
+        <div class="social-matrix">
+
+            <a href="https://github.com/jviera100"
+               class="social-link"
+               target="_blank"
+               title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/jonathan-viera-ladr%C3%B3n-de-guevara-46326567/"
+               class="social-link"
+               target="_blank"
+               title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="mailto:jony.alejandro.viera@gmail.com"
+               class="social-link"
+               title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+            <a href="https://wa.me/56940924477"
+               class="social-link"
+               target="_blank"
+               title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="section">
+
+    <div class="container">
+
+        <h2 class="section-title fade-in">
+            > whoami
+        </h2>
+
+        <p class="section-subtitle fade-in">
+            Cybersecurity Student | Auditor
+        </p>
+
+        <div class="glass-grid">
+
+            <div class="glass-card slide-left">
+
+                <div class="card-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+
+                <h3 class="card-title">
+                    Ciberseguridad
+                </h3>
+
+                <p class="card-text">
+                    Actualmente estudio Ciberseguridad en la Universidad Mayor,
+                    con el objetivo de continuar desarrollándome profesionalmente
+                    en el área.
+                </p>
+
+            </div>
+
+
+            <div class="glass-card fade-in">
+
+                <div class="card-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+
+                <h3 class="card-title">
+                    Auditoría y contabilidad
+                </h3>
+
+                <p class="card-text">
+                    Mi trayectoria profesional comenzó en el área contable.
+                    Esta experiencia me entregó una base relacionada con el
+                    análisis de información, revisión y control de procesos.
+                </p>
+
+            </div>
+
+
+            <div class="glass-card slide-right">
+
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+
+                <h3 class="card-title">
+                    Tecnología
+                </h3>
+
+                <p class="card-text">
+                    También he desarrollado conocimientos en programación,
+                    análisis de datos y herramientas tecnológicas como parte
+                    de mi formación y proyectos personales.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT TEXT -->
+
+        <div class="terminal fade-in">
+
+            <div class="terminal-header">
+
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+
+            </div>
+
+            <div class="terminal-body">
+
+                <div class="terminal-prompt">
+                    ./get-profile.sh
+                </div>
+
+                <div>[INFO] Loading profile...</div>
+
+                <div>[OK] Name: Jonathan Viera</div>
+
+                <div>[OK] Focus: Cybersecurity</div>
+
+                <div>[OK] Background: Accounting / Audit</div>
+
+                <div>[OK] Current role: Executive - Large Business Mobile @ Entel</div>
+
+                <div>[OK] Education: University Technician in Cybersecurity</div>
+
+                <div>[OK] University: Universidad Mayor</div>
+
+                <div>[OK] Direction: Cybersecurity / Systems Audit</div>
+
+                <br>
+
+                <div class="terminal-prompt">
+                    cat /about.txt
+                </div>
+
+                <div>
+                    Actualmente estudio Ciberseguridad y estoy orientando
+                    mi experiencia profesional hacia este campo.
+                </div>
+
+                <div>
+                    Mi trayectoria comenzó en el área contable, donde
+                    desarrollé experiencia trabajando con información,
+                    análisis y revisión de procesos.
+                </div>
+
+                <div>
+                    Mi formación en auditoría y mis conocimientos tecnológicos
+                    complementan esta nueva etapa de desarrollo profesional.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience" class="section">
+
+    <div class="container">
+
+        <h2 class="section-title fade-in">
+            > experience
+        </h2>
+
+        <p class="section-subtitle fade-in">
+            Experiencia profesional y formación que forman parte de mi trayectoria.
+        </p>
+
+
+        <div class="experience-list">
+
+            <!-- ENTEL -->
+
+            <div class="experience-item slide-left">
+
+                <h3>
+                    Ejecutivo Atención Grandes Empresas Móvil
+                </h3>
+
+                <div class="experience-company">
+                    Entel
+                </div>
+
+                <div class="experience-date">
+                    Septiembre 2025 - Actualidad
+                </div>
+
+                <p>
+                    Atención y gestión de clientes del segmento Grandes Empresas
+                    Móvil, apoyando en la resolución de requerimientos y
+                    continuidad del servicio.
+                </p>
+
+            </div>
+
+
+            <!-- CYBERSECURITY -->
+
+            <div class="experience-item fade-in">
+
+                <h3>
+                    Formación y proyectos personales en Ciberseguridad
+                </h3>
+
+                <div class="experience-company">
+                    Proyecto personal
+                </div>
+
+                <div class="experience-date">
+                    2023 - Actualidad
+                </div>
+
+                <p>
+                    Desarrollo progresivo de conocimientos en ciberseguridad
+                    mediante estudios, laboratorios y proyectos personales.
+                    Trabajo con entornos como Kali Linux, Ubuntu, Wireshark,
+                    Packet Tracer y herramientas de seguridad.
+                </p>
+
+            </div>
+
+
+            <!-- BUSINESS -->
+
+            <div class="experience-item slide-right">
+
+                <h3>
+                    Emprendimiento y gestión de negocio
+                </h3>
+
+                <div class="experience-company">
+                    Proyecto propio
+                </div>
+
+                <div class="experience-date">
+                    Etapa profesional anterior
+                </div>
+
+                <p>
+                    Gestión integral de un negocio propio, incluyendo atención
+                    al cliente, logística, pagos, impuestos, inventario y
+                    gestión de personas.
+                </p>
+
+            </div>
+
+
+            <!-- CCU -->
+
+            <div class="experience-item slide-left">
+
+                <h3>
+                    Analista Contable Trainee
+                </h3>
+
+                <div class="experience-company">
+                    CCU
+                </div>
+
+                <div class="experience-date">
+                    Julio 2013 - Diciembre 2016
+                </div>
+
+                <p>
+                    Experiencia en análisis y gestión de cuentas contables,
+                    pagos a proveedores, conciliaciones, control de información
+                    y procesos contables dentro del holding CCU.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills"
+         class="section"
+         style="background: rgba(13,13,13,.5);">
+
+    <div class="container">
+
+        <h2 class="section-title fade-in">
+            > skills
+        </h2>
+
+        <p class="section-subtitle fade-in">
+            Herramientas y conocimientos desarrollados durante mi formación.
+        </p>
+
+
+        <div class="glass-grid">
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+                <div class="skill-name">
+                    Ciberseguridad
                 </div>
             </div>
-            <h1 class="glitch-text">Jonathan Viera</h1>
-            <div class="typing-animation">
-                <span id="typed-text"></span>
-                <span class="cursor"></span>
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="skill-name">
+                    Networking
+                </div>
             </div>
-            <div class="status-badge">
-                <i class="fas fa-rss" style="font-size: 0.8rem;"></i>
-                STATUS: AVAILABLE FOR OPERATIONS
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <div class="skill-name">
+                    Linux / Kali Linux
+                </div>
             </div>
-            <div class="social-matrix">
-                <a href="https://github.com/jviera100" class="social-link" target="_blank" title="GitHub">
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="skill-name">
+                    Análisis de datos
+                </div>
+            </div>
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fab fa-js-square"></i>
+                </div>
+                <div class="skill-name">
+                    JavaScript
+                </div>
+            </div>
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="skill-name">
+                    Python
+                </div>
+            </div>
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="skill-name">
+                    Wireshark
+                </div>
+            </div>
+
+
+            <div class="skill-item fade-in">
+                <div class="skill-icon">
+                    <i class="fab fa-docker"></i>
+                </div>
+                <div class="skill-name">
+                    Docker
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects" class="section">
+
+    <div class="container">
+
+        <h2 class="section-title fade-in">
+            > projects
+        </h2>
+
+        <p class="section-subtitle fade-in">
+            Proyectos y documentación desarrollados durante mi proceso de aprendizaje.
+        </p>
+
+
+        <div class="projects-grid">
+
+            <div class="project-card fade-in">
+
+                <h3 class="project-title">
+                    Documentación Multidisciplinaria
+                </h3>
+
+                <p class="project-description">
+                    Proyecto personal que reúne documentación y guías sobre
+                    programación, ciberseguridad, análisis de datos y
+                    herramientas tecnológicas.
+                </p>
+
+                <div class="project-tags">
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Cybersecurity</span>
+                    <span class="tag">Data</span>
+
+                </div>
+
+                <a href="https://github.com/jviera100/documentacion"
+                   target="_blank"
+                   class="cyber-btn">
+
                     <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/jonathan-viera-ladr%C3%B3n-de-guevara-46326567/" class="social-link" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:jony.alejandro.viera@gmail.com" class="social-link" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://wa.me/56937670141" class="social-link" target="_blank" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+                    GitHub
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">> whoami</h2>
-            <p class="section-subtitle fade-in">Cybersecurity Expert transitioning from accounting to digital defense.</p>
-            
-            <div class="glass-grid">
-                <div class="glass-card slide-left">
-                    <div class="card-icon">
-                        <i class="fas fa-user-secret"></i>
+                </a>
+
+            </div>
+
+
+            <div class="project-card fade-in">
+
+                <h3 class="project-title">
+                    Proyectos de Ciberseguridad
+                </h3>
+
+                <p class="project-description">
+                    Laboratorios y documentación relacionados con seguridad
+                    informática, redes, análisis y herramientas utilizadas
+                    durante mi formación.
+                </p>
+
+                <div class="project-tags">
+
+                    <span class="tag">Wazuh</span>
+                    <span class="tag">Wireshark</span>
+                    <span class="tag">Suricata</span>
+                    <span class="tag">Kali Linux</span>
+
+                </div>
+
+                <a href="https://github.com/jviera100"
+                   target="_blank"
+                   class="cyber-btn">
+
+                    <i class="fab fa-github"></i>
+                    GitHub
+
+                </a>
+
+            </div>
+
+
+            <div class="project-card fade-in">
+
+                <h3 class="project-title">
+                    Desarrollo y programación
+                </h3>
+
+                <p class="project-description">
+                    Proyectos personales desarrollados durante mi formación
+                    tecnológica, incluyendo aplicaciones web y ejercicios
+                    de programación.
+                </p>
+
+                <div class="project-tags">
+
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Python</span>
+
+                </div>
+
+                <a href="https://github.com/jviera100"
+                   target="_blank"
+                   class="cyber-btn">
+
+                    <i class="fab fa-github"></i>
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title fade-in">
+            > education
+        </h2>
+
+        <div class="glass-grid">
+
+            <div class="glass-card fade-in">
+
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+
+                <h3 class="card-title">
+                    Técnico Universitario en Ciberseguridad
+                </h3>
+
+                <p class="card-text">
+                    Universidad Mayor
+                </p>
+
+                <p class="card-text">
+                    2025 - 2027
+                </p>
+
+            </div>
+
+
+            <div class="glass-card fade-in">
+
+                <div class="card-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+
+                <h3 class="card-title">
+                    Formación complementaria
+                </h3>
+
+                <p class="card-text">
+                    Google Cybersecurity, Jóvenes Programadores y formación
+                    práctica en ciberseguridad y tecnología.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact" class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <h2 class="footer-title fade-in">
+                > contact
+            </h2>
+
+            <p class="section-subtitle fade-in">
+                Disponible para oportunidades profesionales,
+                colaboración y proyectos relacionados con tecnología
+                y ciberseguridad.
+            </p>
+
+
+            <div class="contact-grid">
+
+                <a href="mailto:jony.alejandro.viera@gmail.com"
+                   class="contact-item"
+                   style="text-decoration:none;color:var(--text-light)">
+
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <h3 class="card-title">Cybersecurity Focus</h3>
-                    <p class="card-text">
-                        Currently pursuing University Technician in Cybersecurity at Universidad Mayor. 
-                        Specialized in SIEM/EDR implementation, penetration testing, and vulnerability assessment.
+
+                    <p>
+                        jony.alejandro.viera@gmail.com
                     </p>
-                </div>
-                
-                <div class="glass-card fade-in">
-                    <div class="card-icon">
-                        <i class="fas fa-terminal"></i>
+
+                </a>
+
+
+                <a href="https://www.linkedin.com/in/jonathan-viera-ladr%C3%B3n-de-guevara-46326567/"
+                   target="_blank"
+                   class="contact-item"
+                   style="text-decoration:none;color:var(--text-light)">
+
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
                     </div>
-                    <h3 class="card-title">Full Stack Development</h3>
-                    <p class="card-text">
-                        Comprehensive experience in JavaScript ecosystem, including React, Node.js, and modern 
-                        web technologies. Creating secure applications with security-first mindset.
+
+                    <p>
+                        LinkedIn
                     </p>
-                </div>
-                
-                <div class="glass-card slide-right">
-                    <div class="card-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3 class="card-title">Data Analysis</h3>
-                    <p class="card-text">
-                        Strong analytical background from accounting experience at CCU. Expert in financial data 
-                        analysis, risk assessment, and fraud detection patterns.
-                    </p>
-                </div>
+
+                </a>
+
             </div>
 
-            <!-- Terminal Section -->
-            <div class="terminal fade-in">
-                <div class="terminal-header">
-                    <span class="terminal-dot dot-red"></span>
-                    <span class="terminal-dot dot-yellow"></span>
-                    <span class="terminal-dot dot-green"></span>
-                </div>
-                <div class="terminal-body">
-                    <div class="terminal-prompt">./get-profile.sh</div>
-                    <div>[INFO] Executing script...</div>
-                    <div>[OK] Name: Jonathan Viera</div>
-                    <div>[OK] Status: Cybersecurity Student & Full Stack Developer</div>
-                    <div>[OK] Core Competencies: [Secure Coding, Threat Analysis, Pentesting]</div>
-                    <div class="terminal-prompt">cat /var/log/experience.log</div>
-                    <div>- 3+ years as Financial Analyst at CCU</div>
-                    <div>- 6+ years managing own business</div>
-                    <div>- Currently specializing in Cybersecurity</div>
-                    <div class="terminal-prompt">ls -la /bin/skills/</div>
-                    <div>-rwxr-xr-x 1 root wazuh</div>
-                    <div>-rwxr-xr-x 1 root docker</div>
-                    <div>-rwxr-xr-x 1 root kali-linux</div>
-                    <div>-rwxr-xr-x 1 root javascript</div>
-                    <div>-rwxr-xr-x 1 root python</div>
-                    <div>-rwxr-xr-x 1 root networking</div>
-                    <div class="terminal-prompt"></div>
-                </div>
-            </div>
+            <p style="font-size:.8rem;color:#666;">
+                SESSION_TERMINATED
+            </p>
+
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section" style="background: rgba(13,13,13,0.5);">
-        <div class="container">
-            <h2 class="section-title fade-in">> Technical Arsenal</h2>
-            <p class="section-subtitle fade-in">Technologies and tools I use to build and break digital solutions.</p>
-            
-            <!-- This section was intentionally left blank in the original HTML. -->
-            <!-- Adding a skills grid here based on the terminal log for completeness -->
-             <div class="glass-grid">
-                <div class="skill-item fade-in" style="transition-delay: 0.1s;"><div class="skill-icon"><i class="fas fa-shield-virus"></i></div><div class="skill-name">Wazuh SIEM</div></div>
-                <div class="skill-item fade-in" style="transition-delay: 0.2s;"><div class="skill-icon"><i class="fab fa-docker"></i></div><div class="skill-name">Docker</div></div>
-                <div class="skill-item fade-in" style="transition-delay: 0.3s;"><div class="skill-icon"><i class="fas fa-bug"></i></div><div class="skill-name">Kali Linux</div></div>
-                <div class="skill-item fade-in" style="transition-delay: 0.4s;"><div class="skill-icon"><i class="fab fa-js-square"></i></div><div class="skill-name">JavaScript</div></div>
-                <div class="skill-item fade-in" style="transition-delay: 0.5s;"><div class="skill-icon"><i class="fab fa-python"></i></div><div class="skill-name">Python</div></div>
-                <div class="skill-item fade-in" style="transition-delay: 0.6s;"><div class="skill-icon"><i class="fas fa-network-wired"></i></div><div class="skill-name">Networking</div></div>
-             </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h2 class="footer-title fade-in">> Initiate Contact</h2>
-                <p class="section-subtitle fade-in">Open channel for collaboration or infiltration missions.</p>
-                <div class="contact-grid">
-                    <a href="mailto:jony.alejandro.viera@gmail.com" class="contact-item slide-left" style="text-decoration:none; color: var(--text-light)">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <p>jony.alejandro.viera@gmail.com</p>
-                    </a>
-                    <a href="tel:+56937670141" class="contact-item slide-right" style="text-decoration:none; color: var(--text-light)">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <p>+56 9 3767 0141</p>
-                    </a>
-                </div>
-                <p style="font-size: 0.8rem; color: #666;">SESSION_TERMINATED</p>
-            </div>
-        </div>
-    </footer>
+</footer>
 
 
-    <script>
-        // Typing Animation
-        const texts = [
-            'Cybersecurity Expert',
-            'Full Stack Developer',
-            'SOC Analyst',
-            'Ethical Hacker',
-            'Threat Hunter'
-        ];
-        
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typedTextElement = document.getElementById('typed-text');
-        
-        function typeEffect() {
-            const currentText = texts[textIndex];
-            const typeSpeed = isDeleting ? 40 : 80;
-            
-            if (isDeleting) {
-                typedTextElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedTextElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            
-            if (!isDeleting && charIndex === currentText.length) {
-                setTimeout(() => isDeleting = true, 3000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-            }
-            
-            setTimeout(typeEffect, typeSpeed);
+<script>
+
+    /*
+     * EL TEXTO YA NO DICE:
+     * Cybersecurity Expert
+     * SOC Analyst
+     * Threat Hunter
+     * Ethical Hacker
+     *
+     * Ahora refleja el perfil real.
+     */
+
+    const texts = [
+        'Cybersecurity Student',
+        'Auditor',
+        'Accounting Background',
+        'Technology & Security'
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const typedTextElement =
+        document.getElementById('typed-text');
+
+    function typeEffect() {
+
+        const currentText = texts[textIndex];
+
+        const typeSpeed =
+            isDeleting ? 40 : 80;
+
+        if (isDeleting) {
+
+            typedTextElement.textContent =
+                currentText.substring(0,charIndex - 1);
+
+            charIndex--;
+
+        } else {
+
+            typedTextElement.textContent =
+                currentText.substring(0,charIndex + 1);
+
+            charIndex++;
         }
-        
-        // Start typing animation
-        document.addEventListener('DOMContentLoaded', typeEffect);
-        
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => observer.observe(el));
-        
-        // Navigation active state
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id]');
-        
-        window.addEventListener('scroll', () => {
+
+        if (!isDeleting &&
+            charIndex === currentText.length) {
+
+            setTimeout(() => {
+                isDeleting = true;
+            }, 2500);
+
+        } else if (isDeleting &&
+                   charIndex === 0) {
+
+            isDeleting = false;
+
+            textIndex =
+                (textIndex + 1) % texts.length;
+        }
+
+        setTimeout(typeEffect,typeSpeed);
+    }
+
+
+    document.addEventListener(
+        'DOMContentLoaded',
+        typeEffect
+    );
+
+
+    /* SCROLL ANIMATIONS */
+
+    const observer =
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                            .classList
+                            .add('visible');
+
+                        observer.unobserve(
+                            entry.target
+                        );
+                    }
+
+                });
+
+            },
+
+            { threshold: .1 }
+        );
+
+
+    document
+        .querySelectorAll(
+            '.fade-in,.slide-left,.slide-right'
+        )
+        .forEach(el =>
+            observer.observe(el)
+        );
+
+
+    /* NAVIGATION */
+
+    const navLinks =
+        document.querySelectorAll('.nav-link');
+
+    const sections =
+        document.querySelectorAll('section[id]');
+
+    window.addEventListener(
+        'scroll',
+        () => {
+
             let current = '';
+
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
+
+                const sectionTop =
+                    section.offsetTop;
+
                 if (scrollY >= sectionTop - 150) {
-                    current = section.getAttribute('id');
+
+                    current =
+                        section.getAttribute('id');
                 }
+
             });
-            
+
             navLinks.forEach(link => {
+
                 link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
+
+                if (
+                    link.getAttribute('href')
+                    .includes(current)
+                ) {
+
                     link.classList.add('active');
                 }
+
             });
-        });
-    </script>
-    <!-- CHAT --> 
-    <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        }
+    );
+
+</script>
+
+
+<!-- N8N CHAT -->
+
+<script type="module">
+
+    import {
+        createChat
+    } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
 
     createChat({
-        webhookUrl: 'http://localhost:5678/webhook/eab105ed-4969-4b72-ab8a-bc8806a9b3e5/chat',
+
+        webhookUrl:
+            'http://localhost:5678/webhook/eab105ed-4969-4b72-ab8a-bc8806a9b3e5/chat',
+
         initialMessages: [
-        'Hola, soy el asistente de Jonathan. ¿En qué puedo ayudarte?☺️'
+            'Hola, soy el asistente de Jonathan. ¿En qué puedo ayudarte? ☺️'
         ],
+
         defaultLanguage: 'es',
+
         i18n: {
+
             es: {
+
                 title: 'Hunter',
-                subtitle: '🛡️¡Si lo puedes imaginar, lo puedes programar!💻',
+
+                subtitle:
+                    '🛡️ ¡Si lo puedes imaginar, lo puedes programar! 💻',
+
                 footer: '',
-                getStarted: 'Nueva Conversación',
-                inputPlaceholder: 'Escribe tu pregunta...'
+
+                getStarted:
+                    'Nueva Conversación',
+
+                inputPlaceholder:
+                    'Escribe tu pregunta...'
             }
+
         }
+
     });
-    </script>
+
+</script>
+
 </body>
 </html>
+```
